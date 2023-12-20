@@ -1,4 +1,4 @@
-with open("inputday1.txt") as file:
+with open("day1input.txt") as file:
     data  = file.read().strip()
 
 
