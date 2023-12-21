@@ -60,7 +60,6 @@ def find_badge(group):
 print(find_badge(sample_group))
 
 badges = []
-for elf in elf_groups:
-    for c in elf[0]:
-        if c in elf[1] and c in elf[2]:
-            badges.append(find_priority(c))
+for group in elf_groups:
+    badges.append(find_badge(group))
+print(sum(badges))

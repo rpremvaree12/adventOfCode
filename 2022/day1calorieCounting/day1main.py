@@ -26,15 +26,17 @@ print(f"Largest calorie count is: {topCal}")
 # PART TWO
 # Elves would instead like to know the total Calories 
 # carried by the top three Elves carrying the most Calories.
-top1 = topCal
-top2 = 0
-top3 = 0
-for n in elfCalories().values():
-    if n > top2 and n < top1:
-        top3 = top2
-        top2 = n
-    elif n > top3 and n < top2:
-        top3 = n
-    else:
-        continue
-print(f"{top1},{top2},{top3} = {top1 + top2 + top3}")
+
+def top3():
+    top1 = topCal
+    top2 = 0
+    top3 = 0
+    for n in elfCalories().values():
+        if n > top2 and n < top1:
+            top3 = top2
+            top2 = n
+        elif n > top3 and n < top2:
+            top3 = n
+        else:
+            continue
+    print(f"{top1},{top2},{top3} = {top1 + top2 + top3}")
