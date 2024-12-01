@@ -21,23 +21,47 @@ with open("day1input.txt") as file:
 # print(sum(numbers_part_one))
 
 # PART TWO
-number_words = {"one":"1","two":"2","three":"3","four":"4","five":"5","six":"6","seven":"7","eight":"8","nine":"9"}
-numbers_part_two = []
+numberWords = {"one":"1",
+                "two":"2",
+                "three":"3",
+                "four":"4",
+                "five":"5",
+                "six":"6",
+                "seven":"7",
+                "eight":"8",
+                "nine":"9"}
 
+sampleData = """
+two1nine
+eightwothree
+abcone2threexyz
+xtwone3four
+4nineeightseven2
+zoneight234
+7pqrstsixteen
+""".split()
 
+for line in sampleData:
+    cal_line =""
+    for c in line:
+        cal_line += c
+        for word,num in numberWords.items():
+            if word in cal_line:
+                cal_line = cal_line.replace(word,num)
+    print(cal_line)
 
 # finds word only if found in numerical order. "seven" is found but "eight" is earlier.
-word_loc = len(data[2].strip())
-for word in number_words:
-    if data[2].find(word) >= 0:
-        new_word_loc = data[2].find(word)
+# word_loc = len(data[2].strip())
+# for word in number_words:
+#     if data[2].find(word) >= 0:
+#         new_word_loc = data[2].find(word)
         
-        if new_word_loc < word_loc:
-            word_loc = new_word_loc
-            found_word = word
-        else:
-            word_loc = -1
-    print(word_loc, found_word)
+#         if new_word_loc < word_loc:
+#             word_loc = new_word_loc
+#             found_word = word
+#         else:
+#             word_loc = -1
+#     print(word_loc, found_word)
 
 
 #finds number    
