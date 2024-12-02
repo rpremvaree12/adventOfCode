@@ -1,5 +1,7 @@
+from collections import defaultdict
+
 with open('day1input.txt') as afile:
-    inputData = file.readlines()
+    inputData = afile.readlines()
 
 with open('sampleData.txt') as bfile:
     sampleData = bfile.readlines()
@@ -46,17 +48,14 @@ def differenceTwoLists(data):
 # find frequency of number in left list appears in right list
 # mult frequency by each number in left list
 def buildConcordance(data):
-    concordance = {}
+    concordance = defaultdict(int)
     leftList, rightList = cleanData(data)
-    for n in leftList:
-        if n in rightList:
-            if n in concordance:
-                concordance[n] += 1
-            else:
-                concordance[n] = 1
+    for n in rightList:
+        if n in leftList:
+            concordance[n] += 1
         else:
             concordance[n] = 0
-    return(concordance)
+    return concordance
 # count number of times left value appears in right list
 # create a set?
 
@@ -64,10 +63,60 @@ def calculateSimilarity(data):
     similarityScore = 0
     leftList, rightList = cleanData(data)
     concordance = buildConcordance(data)
-    # for n in leftList:
-    #     similarityScore += concordance[n] * n
-    # return similarityScore
+    for n in leftList:
+        similarityScore += concordance[n] * n
+    return similarityScore
 
-print(calculateSimilarity(sampleData))
-print(buildConcordance(inputData))
-# print(calculateSimilarity(inputData))
+# print(buildConcordance(sampleData))
+# print(calculateSimilarity(sampleData))
+# print(buildConcordance(inputData))
+print(calculateSimilarity(inputData))
+
+# all repeat numbers in inputdata
+"""
+92869
+64678
+60853
+25580
+14549
+26820
+92950
+59882
+41310
+82400
+85661
+74691
+23116
+75812
+47324
+14510
+41051
+39776
+33984
+84872
+82391
+65185
+48400
+77539
+83731
+44753
+18829
+36777
+74877
+83870
+35610
+66508
+42459
+99057
+81159
+47115
+70501
+34199
+20602
+82455
+82947
+16859
+76135
+78088
+10638
+"""
