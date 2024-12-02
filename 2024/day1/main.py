@@ -53,8 +53,9 @@ def buildConcordance(data):
     for n in rightList:
         if n in leftList:
             concordance[n] += 1
-        else:
-            concordance[n] = 0
+        # not necessary since default dict
+        # else:
+        #     concordance[n] = 0
     return concordance
 # count number of times left value appears in right list
 # create a set?
@@ -69,54 +70,15 @@ def calculateSimilarity(data):
 
 # print(buildConcordance(sampleData))
 # print(calculateSimilarity(sampleData))
-# print(buildConcordance(inputData))
-print(calculateSimilarity(inputData))
+print(buildConcordance(inputData))
+# print(calculateSimilarity(inputData))
 
 # all repeat numbers in inputdata
-"""
-92869
-64678
-60853
-25580
-14549
-26820
-92950
-59882
-41310
-82400
-85661
-74691
-23116
-75812
-47324
-14510
-41051
-39776
-33984
-84872
-82391
-65185
-48400
-77539
-83731
-44753
-18829
-36777
-74877
-83870
-35610
-66508
-42459
-99057
-81159
-47115
-70501
-34199
-20602
-82455
-82947
-16859
-76135
-78088
-10638
-"""
+
+### post-mortem:
+# buildConcordance wasn't working for the longest time and only finding 1 instance
+# thought it was because I wasn't setting building concordance properly so used defaultdict
+# defaultdict sets not found keys to 0 by default which helps handling keyErrors
+# I needed to iterate through rightList to find if num exists in leftList
+# and update count accordingly
+# learned code was right but I really needed to understand the problem in order to solve it
