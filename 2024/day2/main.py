@@ -15,17 +15,15 @@ def checkReport(reportData):
     numSafe = 0
     for report in reportData:
         isSafe = True
-        for i in range(len(report)-1):
-            print(report)
-            if report[i] > report[i+1]:
-                # levels should be decreasing
-                print("Levels Decreasing!")
-                isSafe = checkDecreasingLevels()
-            else:
-                # levels should be increasing
-                print("Levels Increasing!")
-                isSafe = checkIncreasingLevels()
-            break
+        if report[0] > report[1]:
+            # levels should be decreasing
+            print("Levels Decreasing!")
+            isSafe = checkDecreasingLevels()
+        else:
+            # levels should be increasing
+            print("Levels Increasing!")
+            isSafe = checkIncreasingLevels()
+        break
         # if isSafe: numSafe += 1
     return numSafe
 
