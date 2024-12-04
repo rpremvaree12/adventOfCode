@@ -17,22 +17,16 @@ def checkReport(reportData):
         isSafe = True
         if report[0] > report[1]:
             # levels should be decreasing
-            print("Levels Decreasing!")
             isSafe = checkDecreasingLevels(report)
         else:
             # levels should be increasing
-            print("Levels Increasing!")
-<<<<<<< HEAD
-            isSafe = checkIncreasingLevels()
-=======
             isSafe = checkIncreasingLevels(report)
         print(report)
         if isSafe: numSafe += 1
-        if isSafe:
-            print("Safe")
-        else:
-            print("Unsafe")
->>>>>>> af6f5b0ac66e3e3058ad984ed264f92a40ec5fb4
+        # if isSafe:
+        #     print("Safe")
+        # else:
+        #     print("Unsafe")
         # if isSafe: numSafe += 1
     return numSafe
 
@@ -65,5 +59,5 @@ print(checkReport(sampleData))
 8 6 4 4 1: Unsafe because 4 4 is neither an increase or a decrease.
 1 3 6 7 9: Safe because the levels are all increasing by 1, 2, or 3.
 """
-# inputData = parseData(rawInputData)
-# print(checkReport(inputData))
+inputData = parseData(rawInputData)
+print(checkReport(inputData))
