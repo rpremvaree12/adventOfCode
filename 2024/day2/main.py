@@ -23,7 +23,6 @@ def checkReport(reportData):
             # levels should be increasing
             print("Levels Increasing!")
             isSafe = checkIncreasingLevels()
-        break
         # if isSafe: numSafe += 1
     return numSafe
 

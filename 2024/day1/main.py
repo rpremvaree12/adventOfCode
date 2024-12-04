@@ -1,10 +1,10 @@
 from collections import defaultdict
 
-with open('day1input.txt') as afile:
-    inputData = afile.readlines()
+with open('day1input.txt') as file:
+    inputData = file.readlines()
 
-with open('sampleData.txt') as bfile:
-    sampleData = bfile.readlines()
+with open('sampleData.txt') as file:
+    sampleData = file.readlines()
 
 def cleanData(data):
     leftList = []
