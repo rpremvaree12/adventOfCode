@@ -21,5 +21,7 @@ def findMiddlePage(line):
     
 samplePageRules, samplePageOrder = parseData(sampleData)
 
-for line in samplePageOrder:
-    findMiddlePage(line) ## gets the middle number of the line
+for update in samplePageOrder:
+    findMiddlePage(update) ## gets the middle number of the line
+    print(update)
+    
