@@ -73,12 +73,13 @@ def calculateSimilarity(data):
 print(buildFrequencyMap(inputData))
 # print(calculateSimilarity(inputData))
 
-# all repeat numbers in inputdata
 
-### post-mortem:
-# buildFrequencyMap wasn't working for the longest time and only finding 1 instance
-# thought it was because I wasn't building the map properly so used defaultdict
-# defaultdict sets not found keys to 0 by default which helps handling keyErrors
-# I needed to iterate through rightList to find if num exists in leftList
-# and update count accordingly
-# learned code was right but I really needed to understand the problem in order to solve it
+### REFLECTION:
+# buildFrequencyMap wasn't working for the longest time - only finding 1 instance of each number
+# thought it was because I wasn't building the map properly so I used a defaultdict
+# defaultdict creates key-value pairs that are not found and sets them to 0 by default.
+# This helps which helps handling keyErrors
+# I fixed the problem by rereading the problem and realizing that I needed to iterate through rightList
+# to find if num exists in leftList and update count accordingly
+
+# TAKEAWAY: important to really understand a problem in order to solve it.
