@@ -10,16 +10,25 @@ def parseData(data):
         reportData.append([int(n) for n in level.split()])
     return reportData
 
-def isSafe(reportData):
+def isSafePartOne(reportData):
     numSafe = 0
     for report in reportData:
-        # check if the report is in increasing or decreasing order by checking the original list against a sorted list
-        inc = report == sorted(report)
-        dec =  report == sorted(report,reverse=True)
-        # check if differences no greater than 3 and less than 1
-        if differenceOfThreeIncreasing(report) and inc or differenceOfThreeDecreasing(report) and dec:
-            numSafe +=1
+        if isSafe(report):
+            numSafe += 1
     return numSafe
+
+def isSafe(report):
+    # check if the report is in increasing or decreasing order by checking the original list against a sorted list
+    inc = report == sorted(report)
+    dec =  report == sorted(report,reverse=True)
+    # check if differences no greater than 3 and less than 1
+    if inc and differenceOfThreeIncreasing(report) or differenceOfThreeDecreasing(report) and dec:
+        return True
+    return False
+
+# def isSafePartTwo(reportData):
+    
+
 
 def differenceOfThreeIncreasing(report):
     for i in range(len(report)-1):
@@ -53,10 +62,10 @@ def differenceOfThreeDecreasing(report):
 8 6 4 4 1: Unsafe because 4 4 is neither an increase or a decrease.
 1 3 6 7 9: Safe because the levels are all increasing by 1, 2, or 3.
 """
-inputData = parseData(rawInputData)
-print(isSafe(inputData))
 
-# sampleData = parseData(rawSampleData)
-# print(isSafe(sampleData))
 
-print(differenceOfThreeDecreasing([9, 7, 6, 2, 1]))
+sampleData = parseData(rawSampleData)
+print(isSafePartOne(sampleData))
+
+# inputData = parseData(rawInputData)
+# print(isSafe(inputData))
