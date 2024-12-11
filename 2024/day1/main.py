@@ -47,37 +47,37 @@ def differenceTwoLists(data):
 ### PART TWO
 # find frequency of number in left list appears in right list
 # mult frequency by each number in left list
-def buildConcordance(data):
-    concordance = defaultdict(int)
+def buildFrequencyMap(data):
+    numFrequencyMap = defaultdict(int)
     leftList, rightList = cleanData(data)
     for n in rightList:
         if n in leftList:
-            concordance[n] += 1
+            numFrequencyMap[n] += 1
         # not necessary since default dict
         # else:
         #     concordance[n] = 0
-    return concordance
+    return numFrequencyMap
 # count number of times left value appears in right list
 # create a set?
 
 def calculateSimilarity(data):
     similarityScore = 0
     leftList, rightList = cleanData(data)
-    concordance = buildConcordance(data)
+    concordance = buildFrequencyMap(data)
     for n in leftList:
         similarityScore += concordance[n] * n
     return similarityScore
 
-# print(buildConcordance(sampleData))
+# print(buildFrequencyMap(sampleData))
 # print(calculateSimilarity(sampleData))
-print(buildConcordance(inputData))
+print(buildFrequencyMap(inputData))
 # print(calculateSimilarity(inputData))
 
 # all repeat numbers in inputdata
 
 ### post-mortem:
-# buildConcordance wasn't working for the longest time and only finding 1 instance
-# thought it was because I wasn't setting building concordance properly so used defaultdict
+# buildFrequencyMap wasn't working for the longest time and only finding 1 instance
+# thought it was because I wasn't building the map properly so used defaultdict
 # defaultdict sets not found keys to 0 by default which helps handling keyErrors
 # I needed to iterate through rightList to find if num exists in leftList
 # and update count accordingly
