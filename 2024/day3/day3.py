@@ -14,7 +14,7 @@ cleanSampleText2 = sampleText2.split('do()')
 
 def sumMuls(line):
     sum = 0
-    cleanLine = re.findall("mul\(\d{1,3},\d{1,3}\)",line)
+    cleanLine = re.findall(r"mul\(\d{1,3},\d{1,3}\)",line)
     # print(cleanLine)
     for t in cleanLine:
         t = t[4:-1]
@@ -24,8 +24,8 @@ def sumMuls(line):
 
 def findDont(line):
     sum = 0
-    match = "don't()"
-    cleanLine = line.split("do()")
+    match = r"don't()"
+    cleanLine = line.split(r"do()")
     for l in cleanLine:
         l = re.sub(f"{match}.*", "", l)
         sum += sumMuls(l)
@@ -51,4 +51,6 @@ def partOne(data):
     return totalSum
 
 # print(partOne(inputData))
+
 print(partTwo(inputData))
+# 152849437 is too high

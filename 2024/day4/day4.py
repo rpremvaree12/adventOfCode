@@ -24,7 +24,7 @@ def findLRUD(dataString):
         for line in rowsData:
             colsData += line[rowNum]
 
-    fwCount = re.findall("XMAS",dataString)
+    fwCount = [m for m in re.finditer("XMAS",dataString) if m.start(0)%10 != 1]
     # print(f'forward count: {len(fwCount)}')
 
     bwCount = re.findall("XMAS",dataString[::-1])
